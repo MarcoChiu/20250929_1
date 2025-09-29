@@ -10,17 +10,70 @@
 
 <body>
     <h2>題目六：創建陣列與物件</h2>
+    <p>請分別創建一個陣列與物件用於存儲以下資訊並在瀏覽器的 Console 中打印出來：</p>
+    <ul>
+        <li>待買備忘錄 (用陣列表示)</li>
+        <ul>
+            <li>牛奶</li>
+            <li>酪梨</li>
+            <li>咖啡粉</li>
+            <li>蘋果麵包</li>
+        </ul>
+        <li>用戶的資訊 (用物件表示)</li>
+        <ul>
+            <li>年紀： 20</li>
+            <li>名稱： 小明</li>
+            <li>生理性別： 男</li>
+            <li>興趣： 前端開發、讀書、跑步</li>
+            <li>喜歡的食物： 滷肉飯</li>
+            <li>吃素： 否</li>
+        </ul>
+    </ul>
     <pre class="prettyprint">
+// 附註：同學可嘗試放入任何自訂內容，著重在練習語法操作。
 
+// Todo 待修改
+const toBuyList = []
+const userInfo = {}
+console.log(toBuyList)
+console.log(userInfo)
+
+// Output 輸出
+["牛奶", "酪梨", "咖啡粉", "蘋果麵包"]
+
+{
+ age: 20,
+ name: "小明",
+ sex: "男",
+ hobby: ["前端開發", "讀書", "跑步"],
+ favoriteFood: "滷肉飯",
+ isVegetarian: false
+}
     </pre>
 
     <h2>回答:</h2>
     <pre class="prettyprint">
-  
+
     </pre>
 
     <script>
-      
+        // Todo 待修改
+        const toBuyList = [];
+        toBuyList.push("牛奶");
+        toBuyList.push("酪梨");
+        toBuyList.push("咖啡粉");
+        toBuyList.push("蘋果麵包");
+
+        const userInfo = {};
+        userInfo.age = 20;
+        userInfo.name = "小明";
+        userInfo.sex = "男"
+        userInfo.hobby = ["前端開發", "讀書", "跑步"];
+        userInfo.favoriteFood = "滷肉飯";
+        userInfo.isVegetarian = false;
+
+        console.log(toBuyList);
+        console.log(userInfo);
     </script>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
