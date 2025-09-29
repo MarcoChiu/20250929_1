@@ -10,17 +10,66 @@
 
 <body>
     <h2>題目五：FizzBuzz</h2>
+    <p>FizzBuzz 是一個簡單的小遊戲，給定一串從 1 到 100 的數字：</p>
+    <ul>
+        <li>如果是 3 的倍數，就印出 “Fizz”</li>
+        <li>如果是 5 的倍數，就印出 “Buzz”</li>
+        <li>如果同時是 3 和 5 的倍數，就印出 “FizzBuzz”</li>
+        <li>將結果回傳為一個陣列。</li>
+    </ul>
     <pre class="prettyprint">
+// Todo 待完成
+function fizzBuzz100(){
+  let result = []
+  let count = 1
+  while (count <= 100) {
+    //
+    // 在此的程式將會被執行 100 次
+    // 請撰寫判斷將 FizzBuzz 與數字放入 result 陣列之中
+    //
+    count ++
+  }
+  return result
+}
 
+// input 輸入
+fizzBuzz100()
+
+// output 輸出
+["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"......後續省略]
     </pre>
 
     <h2>回答:</h2>
     <pre class="prettyprint">
-  
+
     </pre>
 
     <script>
-      
+        function fizzBuzz100() {
+            let result = []
+            let count = 1
+            while (count <= 100) {
+
+                if ((count % 3 === 0) && (count % 5 === 0)) {
+                    result.push("“FizzBuzz”");
+                } else if ((count % 3 === 0)) {
+                    result.push("“Buzz”");
+                } else if ((count % 5 === 0)) {
+                    result.push("Fizz");
+                } else {
+                    result.push(count.toString());
+                }
+                count++
+            }
+
+            console.log(result);
+
+            return result
+
+
+        }
+
+        fizzBuzz100();
     </script>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>

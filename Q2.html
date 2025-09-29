@@ -10,17 +10,64 @@
 
 <body>
     <h2>題目二：溫標轉換</h2>
+    <p>目前常見的溫度標示有攝氏(°C)與華氏(°F)，請撰寫兩個函式可以轉換彼此四捨五入至小數第一位，如下範例。</p>
+    <ul>
+        <li>攝氏轉華氏： (10°C x 9/5) + 32 = 50°F</li>
+        <li>華氏轉攝氏： (10°F − 32) × 5/9 = -12.2°C</li>
+    </ul>
     <pre class="prettyprint">
+// input 輸入
+CtoF(10)
+FtoC(10)
 
+// output 輸出
+50
+-12.2
     </pre>
 
     <h2>回答:</h2>
     <pre class="prettyprint">
-  
+        function CtoF(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                console.log((num * 9 / 5) + 32);
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function FtoC(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                let c = (num - 32) * 5 / 9;
+                console.log(Number.parseFloat(c).toFixed(2));//取小數點幾位                
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        CtoF(10);
+        FtoC(10);
     </pre>
 
     <script>
-      
+        function CtoF(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                console.log((num * 9 / 5) + 32);
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function FtoC(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                let c = (num - 32) * 5 / 9;
+                console.log(c.toFixed(2));//取小數點幾位                
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        CtoF(10);
+        FtoC(10);
     </script>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
