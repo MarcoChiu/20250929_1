@@ -52,7 +52,28 @@ console.log(nestedNumbers, deepCloneNestedNumbers);
     </pre>
     <h2>回答:</h2>
     <pre class="prettyprint">
+        // JSON.stringify()方法將一個JavaScript 物件或值轉換為JSON 字串，如果指定了一個replacer 函數，則可以選擇性地替換值，或者指定的replacer 是數組，則可選擇性地僅包含數組指定的屬性。
+        // JSON.stringify 不能push
+        const nestedNumbers1 = { name: "Marco", age: 20 };
+        const deepCloneNestedNumbers1 = JSON.stringify(nestedNumbers1);
+        console.log(deepCloneNestedNumbers1);  // {"name":"Marco","age":20}
 
+        const nestedNumbers2 = '{ name: "Marco", age: 20 }';
+        const deepCloneNestedNumbers2 = JSON.stringify(nestedNumbers2);
+        deepCloneNestedNumbers2.dogs = 3;
+        console.log(deepCloneNestedNumbers2);  // "{name:\"Marco\",age:20}"
+
+        // JSON.parse() 方法把會把一個 JSON 字串轉換成 JavaScript 的數值或是物件。另外也可選擇使用 reviver 函數讓這些數值或是物件在被回傳之前做轉換。
+        // JSON.parse() 只能轉json字串
+        const nestedNumbers3 = '{ "name": "Marco", "age": 20 }';
+        const deepCloneNestedNumbers3 = JSON.parse(nestedNumbers3);
+        deepCloneNestedNumbers3.dogs = 3;
+        console.log(deepCloneNestedNumbers3); //{name: "Marco", age: 20, "dogs": 3} 
+        
+        const nestedNumbers = [[1], [2]];
+        const deepCloneNestedNumbers = JSON.parse(JSON.stringify(nestedNumbers));
+        deepCloneNestedNumbers[0].push(300);
+        console.log(nestedNumbers,deepCloneNestedNumbers);
     </pre>
 
     <script>
