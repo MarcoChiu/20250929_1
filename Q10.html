@@ -52,48 +52,41 @@ console.log(moonCakeTime(moonPhase))
     <h2>回答:</h2>
     <pre class="prettyprint">
         function moonCakeTime(planetPhase) {
-
             //forEach() 不會回傳值，主要用於執行側邊效果(side effects)，例如：修改外部變數、顯示資訊或呼叫其他函式。 
             const arr1 = [];
-            planetPhase.forEach(x => {
-                arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x);
-            });
+            planetPhase.forEach(x => { arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x); });
 
             //map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。
-            const arr2 = planetPhase.map((x) => x == "🌕" ? x = "🌕 + 🥮" : x);            
+            const arr2 = planetPhase.map(x =>  x == "🌕" ? x = "🌕 + 🥮" : x );
 
             //Array 實例的 filter() 方法會建立一個給定陣列部分的淺複製，過濾掉未通過所提供函式所實作測試的給定陣列元素。
 
             //reduce() 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。 
- 
-            return arr2;
+
+            return arr1;
         }
         const moonPhase = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
         console.log(moonCakeTime(moonPhase));
-        //moonCakeTime(moonPhase);
     </pre>
 
     <script>
         function moonCakeTime(planetPhase) {
-
             //forEach() 不會回傳值，主要用於執行側邊效果(side effects)，例如：修改外部變數、顯示資訊或呼叫其他函式。 
             const arr1 = [];
-            planetPhase.forEach(x => {
-                arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x);
-            });
+            planetPhase.forEach(x => { arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x); });
 
             //map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。
-            const arr2 = planetPhase.map((x) => x == "🌕" ? x = "🌕 + 🥮" : x);            
+            const arr2 = planetPhase.map(x =>  x == "🌕" ? x = "🌕 + 🥮" : x );
 
             //Array 實例的 filter() 方法會建立一個給定陣列部分的淺複製，過濾掉未通過所提供函式所實作測試的給定陣列元素。
 
             //reduce() 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。 
- 
-            return arr2;
+
+            return arr1;
         }
         const moonPhase = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
         console.log(moonCakeTime(moonPhase));
-        //moonCakeTime(moonPhase);
+      
     </script>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
