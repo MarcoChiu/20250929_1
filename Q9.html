@@ -10,17 +10,75 @@
 
 <body>
     <h2>題目九：複製陣列或物件(深拷貝)</h2>
+    <p>關鍵字與參考資料：</p>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"
+                target="_blank">MDN Json.prase()</a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+                target="_blank">JSON.stringify()</a>
+        </li>
+        <li>Array Deep Clone</li>
+    </ul>
     <pre class="prettyprint">
+// Input 輸入
+const nestedNumbers = [[1], [2]];
+const numbersCopy = [...nestedNumbers];
+numbersCopy[0].push(300);
+console.log(nestedNumbers, numbersCopy);
 
+// Output 輸出
+// 兩個變數都被更改了，因為他們共享相同的記憶體位址來存儲資料。
+[[1, 300], [2]]
+[[1, 300], [2]]
     </pre>
 
+    <p>(請先參考以上代碼了解問題點)</p>
+    <p>在大多情況下使用淺層拷貝就足矣，但當情況稍微複雜一點(嵌套的陣列或物件)，在第二層還是會出現共享記憶體位址來存儲資料的問題，造成：「更動 A 陣列也跟著改動到 B 陣列」的問題。</p>
+    <p>請創造 nestedNumbers 並深層複製出 deepCloneNestedNumbers，使其各自有獨立的記憶體位置存放資料。</p>
+    <pre class="prettyprint">
+// Todo 待編輯
+const nestedNumbers = [[1], [2]];
+const deepCloneNestedNumbers = [];
+deepCloneNestedNumbers[0].push(300);
+console.log(nestedNumbers, deepCloneNestedNumbers);
+
+// Output 輸出
+[[1], [2]]
+[[1, 300], [2]]
+
+    </pre>
     <h2>回答:</h2>
     <pre class="prettyprint">
-  
+
     </pre>
 
     <script>
-      
+
+        // JSON.stringify()方法將一個JavaScript 物件或值轉換為JSON 字串，如果指定了一個replacer 函數，則可以選擇性地替換值，或者指定的replacer 是數組，則可選擇性地僅包含數組指定的屬性。
+        // JSON.stringify 不能push
+        const nestedNumbers1 = { name: "Marco", age: 20 };
+        const deepCloneNestedNumbers1 = JSON.stringify(nestedNumbers1);
+        console.log(deepCloneNestedNumbers1);  // {"name":"Marco","age":20}
+
+        const nestedNumbers2 = '{ name: "Marco", age: 20 }';
+        const deepCloneNestedNumbers2 = JSON.stringify(nestedNumbers2);
+        deepCloneNestedNumbers2.dogs = 3;
+        console.log(deepCloneNestedNumbers2);  // "{name:\"Marco\",age:20}"
+
+        // JSON.parse() 方法把會把一個 JSON 字串轉換成 JavaScript 的數值或是物件。另外也可選擇使用 reviver 函數讓這些數值或是物件在被回傳之前做轉換。
+        // JSON.parse() 只能轉json字串
+        const nestedNumbers3 = '{ "name": "Marco", "age": 20 }';
+        const deepCloneNestedNumbers3 = JSON.parse(nestedNumbers3);
+        deepCloneNestedNumbers3.dogs = 3;
+        console.log(deepCloneNestedNumbers3); //{name: "Marco", age: 20, "dogs": 3} 
+        
+        const nestedNumbers = [[1], [2]];
+        const deepCloneNestedNumbers = JSON.parse(JSON.stringify(nestedNumbers));
+        deepCloneNestedNumbers[0].push(300);
+        console.log(nestedNumbers,deepCloneNestedNumbers);
     </script>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
